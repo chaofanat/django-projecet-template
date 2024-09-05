@@ -1,0 +1,401 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-05 15:35+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\FlashCards\settings.py:154
+msgid "English"
+msgstr "英文"
+
+#: .\FlashCards\settings.py:155
+msgid "Simplified Chinese"
+msgstr "简体中文"
+
+#: .\templates\account\account_inactive.html:5
+#: .\templates\account\account_inactive.html:8
+msgid "Account Inactive"
+msgstr "账户未激活"
+
+#: .\templates\account\account_inactive.html:10
+msgid "This account is inactive."
+msgstr "此账户未激活。"
+
+#: .\templates\account\email.html:6 .\templates\account\email.html:7
+#: .\templates\account\email.html:10
+msgid "E-mail Addresses"
+msgstr "电子邮件地址"
+
+#: .\templates\account\email.html:12
+msgid "The following e-mail addresses are associated with your account:"
+msgstr "以下电子邮件地址与您的账户关联："
+
+#: .\templates\account\email.html:26
+msgid "Verified"
+msgstr "已验证"
+
+#: .\templates\account\email.html:28
+msgid "Unverified"
+msgstr "未验证"
+
+#: .\templates\account\email.html:30
+msgid "Primary"
+msgstr "主要"
+
+#: .\templates\account\email.html:36
+msgid "Make Primary"
+msgstr "设为主要"
+
+#: .\templates\account\email.html:38
+msgid "Re-send Verification"
+msgstr "重新发送验证"
+
+#: .\templates\account\email.html:40
+msgid "Remove"
+msgstr "移除"
+
+#: .\templates\account\email.html:48
+msgid "Warning:"
+msgstr "警告："
+
+#: .\templates\account\email.html:48
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+"您当前没有设置任何电子邮件地址。您应该添加一个电子邮件地址以便接收通知、重置密码等。"
+
+#: .\templates\account\email.html:53
+msgid "Add E-mail Address"
+msgstr "添加电子邮件地址"
+
+#: .\templates\account\email.html:58
+msgid "Add E-mail"
+msgstr "添加电子邮件"
+
+#: .\templates\account\email\base_message.html:1
+#, python-format
+msgid "Hello from %(site_name)s!"
+msgstr "%(site_name)s 您好！"
+
+#: .\templates\account\email\base_message.html:5
+#, python-format
+msgid ""
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+"感谢您使用 %(site_name)s！\n"
+"%(site_domain)s"
+
+#: .\templates\account\email\email_confirmation_message.html:5
+#, python-format
+msgid ""
+"You're receiving this e-mail because user %(user_display)s has given your e-"
+"mail address to register an account on %(site_domain)s.\n"
+"\n"
+"To confirm this is correct, go to %(activate_url)s"
+msgstr ""
+"您收到这封电子邮件是因为用户 %(user_display)s 提供了您的电子邮件地址以在 %(site_domain)s 注册账户。\n"
+"\n"
+"要确认这一点，请访问 %(activate_url)s"
+
+#: .\templates\account\email\email_confirmation_subject.html:3
+msgid "Please Confirm Your E-mail Address"
+msgstr "请确认您的电子邮件地址"
+
+#: .\templates\account\email\password_reset_key_message.html:4
+msgid ""
+"You're receiving this e-mail because you or someone else has requested a "
+"password for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the "
+"link below to reset your password."
+msgstr ""
+"您收到这封电子邮件是因为您或其他人请求了您的用户账户密码。\n"
+"如果您没有请求重置密码，则可以忽略此邮件。点击下面的链接来重置您的密码。"
+
+#: .\templates\account\email\password_reset_key_message.html:9
+#, python-format
+msgid "In case you forgot, your username is %(username)s."
+msgstr "以防您忘记，您的用户名是 %(username)s。"
+
+#: .\templates\account\email\password_reset_key_subject.html:3
+msgid "Password Reset E-mail"
+msgstr "密码重置电子邮件"
+
+#: .\templates\account\email_confirm.html:7
+#: .\templates\account\email_confirm.html:11
+msgid "Confirm E-mail Address"
+msgstr "确认电子邮件地址"
+
+#: .\templates\account\email_confirm.html:17
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+"请确认 <a href=\"mailto:%(email)s\">%(email)s</a> 是用户 %(user_display)s 的电子邮件地址。"
+
+#: .\templates\account\email_confirm.html:21
+msgid "Confirm"
+msgstr "确认"
+
+#: .\templates\account\email_confirm.html:29
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href=\"%"
+"(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+"此电子邮件确认链接已过期或无效。请 <a href=\"%"
+"(email_url)s\">提交新的电子邮件确认请求</a>。"
+
+#: .\templates\account\header.html:8
+#: .\templates\account\password_change.html:6
+#: .\templates\account\password_change.html:7
+#: .\templates\account\password_change.html:10
+#: .\templates\account\password_change.html:15
+#: .\templates\account\password_reset_from_key.html:6
+#: .\templates\account\password_reset_from_key.html:7
+#: .\templates\account\password_reset_from_key.html:10
+#: .\templates\account\password_reset_from_key_done.html:4
+#: .\templates\account\password_reset_from_key_done.html:7
+msgid "Change Password"
+msgstr "更改密码"
+
+#: .\templates\account\header.html:9 .\templates\account\logout.html:6
+#: .\templates\account\logout.html:7 .\templates\account\logout.html:10
+#: .\templates\account\logout.html:19
+msgid "Sign Out"
+msgstr "登出"
+
+#: .\templates\account\header.html:11 .\templates\account\login.html:7
+#: .\templates\account\login.html:8 .\templates\account\login.html:12
+#: .\templates\account\login.html:44
+msgid "Sign In"
+msgstr "登录"
+
+#: .\templates\account\header.html:12 .\templates\account\signup.html:11
+#: .\templates\account\signup.html:21
+msgid "Sign Up"
+msgstr "注册"
+
+#: .\templates\account\login.html:17
+#, python-format
+msgid ""
+"Please sign in with one\n"
+"of your existing third party accounts. Or, <a href=\"%(signup_url)s\">sign "
+"up</a>\n"
+"for a %(site_name)s account and sign in below:"
+msgstr ""
+"请使用您现有的第三方账户之一登录。或者，<a href=\"%(signup_url)s\">注册</a>\n"
+"一个 %(site_name)s 账户并在此处登录："
+
+#: .\templates\account\login.html:27
+msgid "or"
+msgstr "或"
+
+#: .\templates\account\login.html:34
+#, python-format
+msgid ""
+"If you have not created an account yet, then please\n"
+"<a href=\"%(signup_url)s\">注册</a> 首先。"
+msgstr ""
+"如果您还没有创建账户，请\n"
+"<a href=\"%(signup_url)s\">注册</a> 首先。"
+
+#: .\templates\account\login.html:46
+#: .\templates\account\password_change.html:17
+msgid "Forgot Password?"
+msgstr "忘记密码？"
+
+#: .\templates\account\logout.html:12
+msgid "Are you sure you want to sign out?"
+msgstr "您确定要登出吗？"
+
+#: .\templates\account\messages\cannot_delete_primary_email.html:2
+#, python-format
+msgid "You cannot remove your primary e-mail address (%(email)s)."
+msgstr "您不能移除您的主要电子邮件地址 (%(email)s)。"
+
+#: .\templates\account\messages\email_confirmation_sent.html:2
+#, python-format
+msgid "Confirmation e-mail sent to %(email)s."
+msgstr "已向 %(email)s 发送确认电子邮件。"
+
+#: .\templates\account\messages\email_confirmed.html:2
+#, python-format
+msgid "You have confirmed %(email)s."
+msgstr "您已确认 %(email)s。"
+
+#: .\templates\account\messages\email_deleted.html:2
+#, python-format
+msgid "Removed e-mail address %(email)s."
+msgstr "已移除电子邮件地址 %(email)s。"
+
+#: .\templates\account\messages\logged_in.html:4
+#, python-format
+msgid "Successfully signed in as %(name)s."
+msgstr "成功以 %(name)s 登录。"
+
+#: .\templates\account\messages\logged_out.html:2
+msgid "You have signed out."
+msgstr "您已登出。"
+
+#: .\templates\account\messages\password_changed.html:2
+msgid "Password successfully changed."
+msgstr "密码已成功更改。"
+
+#: .\templates\account\messages\password_set.html:2
+msgid "Password successfully set."
+msgstr "密码已成功设置。"
+
+#: .\templates\account\messages\primary_email_set.html:2
+msgid "Primary e-mail address set."
+msgstr "主要电子邮件地址已设置。"
+
+#: .\templates\account\messages\unverified_primary_email.html:2
+msgid "Your primary e-mail address must be verified."
+msgstr "您的主要电子邮件地址必须经过验证。"
+
+#: .\templates\account\password_reset.html:7
+#: .\templates\account\password_reset.html:8
+#: .\templates\account\password_reset.html:12
+#: .\templates\account\password_reset_done.html:6
+#: .\templates\account\password_reset_done.html:9
+msgid "Password Reset"
+msgstr "重置密码"
+
+#: .\templates\account\password_reset.html:17
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+"忘记密码了吗？请输入您的电子邮件地址，我们将发送一封允许您重置密码的电子邮件。"
+
+#: .\templates\account\password_reset.html:22
+msgid "Reset My Password"
+msgstr "重置我的密码"
+
+#: .\templates\account\password_reset.html:26
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr "如果您在重置密码时遇到问题，请联系我们。"
+
+#: .\templates\account\password_reset_done.html:15
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+"我们已向您发送了一封电子邮件。如果您在几分钟内未收到，请联系我们。"
+
+#: .\templates\account\password_reset_from_key.html:10
+msgid "Bad Token"
+msgstr "无效令牌"
+
+#: .\templates\account\password_reset_from_key.html:14
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+"密码重置链接无效，可能是因为它已被使用。请请求 <a href=\"%(passwd_reset_url)s\">新的密码重置</a>。"
+
+#: .\templates\account\password_reset_from_key.html:20
+msgid "change password"
+msgstr "更改密码"
+
+#: .\templates\account\password_reset_from_key.html:23
+#: .\templates\account\password_reset_from_key_done.html:8
+msgid "Your password is now changed."
+msgstr "您的密码已更改。"
+
+#: .\templates\account\password_set.html:6
+#: .\templates\account\password_set.html:7
+#: .\templates\account\password_set.html:10
+#: .\templates\account\password_set.html:15
+msgid "Set Password"
+msgstr "设置密码"
+
+#: .\templates\account\signup.html:6 .\templates\account\signup.html:7
+msgid "Signup"
+msgstr "注册"
+
+#: .\templates\account\signup.html:13
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+"已有账户？请 <a href=\"%(login_url)s\">登录</a>。"
+
+#: .\templates\account\signup_closed.html:5
+#: .\templates\account\signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr "注册关闭"
+
+#: .\templates\account\signup_closed.html:10
+msgid "We are sorry, but the sign up is currently closed."
+msgstr "很抱歉，目前注册已关闭。"
+
+#: .\templates\account\snippets\already_logged_in.html:5
+msgid "Note"
+msgstr "注意"
+
+#: .\templates\account\snippets\already_logged_in.html:5
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr "您已作为 %(user_display)s 登录。"
+
+#: .\templates\account\verification_sent.html:5
+#: .\templates\account\verification_sent.html:8
+#: .\templates\account\verified_email_required.html:5
+#: .\templates\account\verified_email_required.html:8
+msgid "Verify Your E-mail Address"
+msgstr "验证您的电子邮件地址"
+
+#: .\templates\account\verification_sent.html:10
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+"我们已向您发送了一封用于验证的电子邮件。请按照提供的链接完成注册过程。如果您在几分钟内未收到，请联系我们。"
+
+#: .\templates\account\verified_email_required.html:12
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your e-mail address. "
+msgstr ""
+"本网站的这一部分需要我们验证您的身份。为此，我们需要您验证您的电子邮件地址的所有权。"
+
+#: .\templates\account\verified_email_required.html:16
+msgid ""
+"We have sent an e-mail to you for\n"
+"verification. Please click on the link inside this e-mail. Please\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+"我们已向您发送了一封用于验证的电子邮件。请单击此电子邮件中的链接。如果您在几分钟内未收到，请联系我们。"
+
+#: .\templates\account\verified_email_required.html:20
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+"<strong>注意：</strong>您仍然可以 <a href=\"%(email_url)s\">更改您的电子邮件地址</a>。"
+
+#: .\templates\base.html:48
+msgid "Message"
+msgstr "消息"
