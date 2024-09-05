@@ -24,6 +24,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path("i18n/", include("django.conf.urls.i18n")),
     path('api/', api.urls),
+    path('silk/', include('silk.urls', namespace='silk')),
     path("", include(("appIndex.urls","appIndex"), namespace="appIndex"))
 ]
 

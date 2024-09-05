@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # django-silk
+    "silk",
     #bootstrap5
     "django_bootstrap5",
     # django-allauth
@@ -52,6 +54,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'silk.middleware.SilkyMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     # locale
@@ -185,7 +188,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 EMAIL_HOST = 'smtp.qq.com'  # 如果是 163 改成 smtp.163.com
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'chaofanat@qq.com'  # 发送邮件的邮箱帐号
-EMAIL_HOST_PASSWORD = 'ndwuijbugjxnbagc'  # 授权码,各邮箱的设置中启用smtp服务时获取
+EMAIL_HOST_PASSWORD = 'abcdefgdas'  # 授权码,各邮箱的设置中启用smtp服务时获取
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  #收件人显示发件人的邮箱
 # DEFAULT_FROM_EMAIL = '<xxxxx@qq.com>' #也可以随意写
 EMAIL_USE_SSL = True   # 使用ssl

@@ -11,6 +11,7 @@
 - [X] 后台管理界面美化。基于simpleui。
 - [X] api开发集成。基于django-ninja。
 - [X] api登录JWT认证。基于django-ninja-jwt.
+- [X] 集成django框架实时分析和检查工具。基于django-silk
 
 其他：
 
@@ -19,7 +20,6 @@
 * [X] 建立appIndex应用，作为项目初始主页以及示例。
 * [X] 配置vscode调试launch.json文件
 * [X] 完成了三方适配应用的相关开箱即用的初始配置。
-
 
 # 使用方法
 
@@ -70,17 +70,12 @@
 
    ![1725534423502](image/README/1725534423502.png)
 
-
 # 效果展示
 
 ![1725534529979](image/README/1725534529979.png)
 
-
 ![1725534567677](image/README/1725534567677.png)
 
-
 ![1725534590568](image/README/1725534590568.png)
-
-
 
 ![1725534625562](image/README/1725534625562.png)
