@@ -21,6 +21,7 @@ from django.urls import include
 from .apis import api
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("accounts/profile/", include(("appUser.urls","appUser"), namespace="appUser")),
     path('accounts/', include('allauth.urls')),
     path("i18n/", include("django.conf.urls.i18n")),
     path('api/', api.urls),
@@ -28,4 +29,8 @@ urlpatterns = [
     path("", include(("appIndex.urls","appIndex"), namespace="appIndex"))
 ]
 
+from django.conf import settings
+from django.conf.urls.static import static
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

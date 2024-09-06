@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-05 18:08+0800\n"
+"POT-Creation-Date: 2024-09-05 21:42+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,13 +17,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\MainConfig\settings.py:154
+#: .\MainConfig\settings.py:158
 msgid "English"
 msgstr "英文"
 
-#: .\MainConfig\settings.py:155
+#: .\MainConfig\settings.py:159
 msgid "Simplified Chinese"
 msgstr "简体中文"
+
+#: .\appUser\models.py:21
+msgid "Profile"
+msgstr "用户信息"
+
+#: .\appUser\models.py:22
+#, fuzzy
+#| msgid "Profile"
+msgid "Profiles"
+msgstr "用户信息"
 
 #: .\templates\account\account_inactive.html:5
 #: .\templates\account\account_inactive.html:8
@@ -182,20 +192,20 @@ msgstr ""
 #: .\templates\account\password_reset_from_key.html:10
 #: .\templates\account\password_reset_from_key_done.html:4
 #: .\templates\account\password_reset_from_key_done.html:7
-#: .\templates\allauth\layouts\base.html:37
+#: .\templates\allauth\layouts\base.html:72
 msgid "Change Password"
 msgstr "更改密码"
 
 #: .\templates\account\header.html:9 .\templates\account\logout.html:6
 #: .\templates\account\logout.html:7 .\templates\account\logout.html:10
-#: .\templates\account\logout.html:19 .\templates\allauth\layouts\base.html:61
+#: .\templates\account\logout.html:19 .\templates\allauth\layouts\base.html:96
 #: .\templates\usersessions\usersession_list.html:64
 msgid "Sign Out"
 msgstr "登出"
 
 #: .\templates\account\header.html:11 .\templates\account\login.html:7
 #: .\templates\account\login.html:8 .\templates\account\login.html:12
-#: .\templates\account\login.html:24 .\templates\allauth\layouts\base.html:68
+#: .\templates\account\login.html:24 .\templates\allauth\layouts\base.html:103
 #: .\templates\mfa\authenticate.html:6 .\templates\mfa\authenticate.html:24
 #: .\templates\openid\login.html:5 .\templates\openid\login.html:9
 #: .\templates\openid\login.html:20 .\templates\socialaccount\login.html:5
@@ -203,19 +213,19 @@ msgstr "登出"
 msgid "Sign In"
 msgstr "登录"
 
-#: .\templates\account\header.html:12 .\templates\account\login.html:28
-#: .\templates\account\signup.html:11 .\templates\account\signup.html:21
-#: .\templates\allauth\layouts\base.html:74
+#: .\templates\account\header.html:12 .\templates\account\signup.html:11
+#: .\templates\account\signup.html:21
+#: .\templates\allauth\layouts\base.html:109
 #: .\templates\socialaccount\signup.html:9
 #: .\templates\socialaccount\signup.html:25
 msgid "Sign Up"
 msgstr "注册"
 
-#: .\templates\account\login.html:32
+#: .\templates\account\login.html:31
 msgid "Or, sign in with:"
 msgstr "或者，使用三方登录"
 
-#: .\templates\account\login.html:48
+#: .\templates\account\login.html:47
 #, fuzzy, python-format
 #| msgid ""
 #| "If you have not created an account yet, then please\n"
@@ -412,21 +422,17 @@ msgstr ""
 "<strong>注意：</strong>您仍然可以 <a href=\"%(email_url)s\">更改您的电子邮件"
 "地址</a>。"
 
-#: .\templates\allauth\layouts\base.html:18
+#: .\templates\allauth\layouts\base.html:46
 #, fuzzy
 #| msgid "Message"
 msgid "Messages:"
 msgstr "消息"
 
-#: .\templates\allauth\layouts\base.html:25
-msgid "Menu:"
-msgstr ""
-
-#: .\templates\allauth\layouts\base.html:31
+#: .\templates\allauth\layouts\base.html:66
 msgid "Change Email"
 msgstr ""
 
-#: .\templates\allauth\layouts\base.html:43
+#: .\templates\allauth\layouts\base.html:78
 #: .\templates\socialaccount\connections.html:5
 #: .\templates\socialaccount\connections.html:9
 #, fuzzy
@@ -434,13 +440,13 @@ msgstr ""
 msgid "Account Connections"
 msgstr "账户未激活"
 
-#: .\templates\allauth\layouts\base.html:49
+#: .\templates\allauth\layouts\base.html:84
 #: .\templates\mfa\authenticate.html:10 .\templates\mfa\index.html:5
 #: .\templates\mfa\index.html:9
 msgid "Two-Factor Authentication"
 msgstr ""
 
-#: .\templates\allauth\layouts\base.html:55
+#: .\templates\allauth\layouts\base.html:90
 #: .\templates\usersessions\usersession_list.html:6
 #: .\templates\usersessions\usersession_list.html:10
 msgid "Sessions"

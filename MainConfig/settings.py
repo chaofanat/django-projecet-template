@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # django-silk
     "silk",
+
+    # ninja api
+    'ninja_jwt',
+    "ninja_extra",
     #bootstrap5
     "django_bootstrap5",
     # django-allauth
@@ -51,6 +55,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     # app
     'appIndex',
+    'appUser',
 ]
 
 MIDDLEWARE = [
@@ -143,7 +148,7 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 #认证登录后跳转
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/accounts/profile/"
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -176,6 +181,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -185,10 +192,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # email
 #邮件配置,需要去三方邮箱开启授权服务
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+ACCOUNT_EMAIL_VERIFICATION =  "optional" # 注册邮箱验证
 EMAIL_HOST = 'smtp.qq.com'  # 如果是 163 改成 smtp.163.com
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'chaofanat@qq.com'  # 发送邮件的邮箱帐号
-EMAIL_HOST_PASSWORD = 'abcdefgdas'  # 授权码,各邮箱的设置中启用smtp服务时获取
+EMAIL_HOST_PASSWORD = 'jlzarovrvdrtjbah'  # 授权码,各邮箱的设置中启用smtp服务时获取
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  #收件人显示发件人的邮箱
 # DEFAULT_FROM_EMAIL = '<xxxxx@qq.com>' #也可以随意写
 EMAIL_USE_SSL = True   # 使用ssl
