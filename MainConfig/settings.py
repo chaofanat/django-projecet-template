@@ -147,7 +147,7 @@ SOCIALACCOUNT_PROVIDERS = {
     },
 }
 
-#认证登录后跳转
+#邮箱认证登录后跳转
 LOGIN_REDIRECT_URL = "/accounts/profile/"
 
 # Internationalization
