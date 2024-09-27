@@ -24,3 +24,7 @@ python manage.py makemessages -l en
 
 @REM 编译翻译文件
 python manage.py compilemessages 
+
+ git remote -v
+
+ git remote set-url origin https://gitee.com/chaofanat/django-projecet-template.git
