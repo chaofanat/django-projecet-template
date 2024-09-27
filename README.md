@@ -1,5 +1,7 @@
 # django-project-template
 
+## 项目概述
+
 一个django项目启动模板。
 
 集成了django-allauth、django-allauth-bootstrap5、simpleui、django-ninja、django-ninja-jwt等django适配的应用，用于提供一个基础设施更加完善的django项目启动模板。
@@ -12,6 +14,7 @@
 - [X] api开发集成。基于django-ninja。
 - [X] api登录JWT认证。基于django-ninja-jwt.
 - [X] 集成django框架实时分析和检查工具。基于django-silk
+- [X] 生产环境wsgi服务器。基于waitress。
 
 其他：
 
@@ -20,13 +23,18 @@
 * [X] 建立appIndex应用，作为项目初始主页以及示例。
 * [X] 配置vscode调试launch.json文件
 * [X] 完成了三方适配应用的相关开箱即用的初始配置。
+* [X] 集成了redis作为内存管理服务。
+* [X] 集成了celery进行异步任务调度管理。
+* [X] 配置了dockerfile等docker相关配置。
+* [X] 集成了nginx进行请求转发。对静态文件以及媒体文件的访问做了优化处理。
 
-# 使用方法
+
+## 快速部署
 
 1. 将项目拉到本地
 
 ```cmake
-    git clone https://github.com/chaofanat/django-projecet-template.git
+    git clone https://gitee.com/chaofanat/django-projecet-template.git
 ```
 
 2. 安装依赖
@@ -45,7 +53,7 @@
    ```cmake
    python manage.py createsuperuser
    ```
-5. 配置邮箱相关配置
+5. 配置邮箱相关配置MainConfig/settings.py
 
    ```python
    # email
@@ -64,13 +72,20 @@
 6. 启动服务
 
    ```cmake
-   python manage.py runserver 0.0.0.0:8080
+   #8080端口访问
+   start_for_windows
+   #或者使用docker启动容器服务，80端口或者8080端口进行访问
+   docker-compose build
+   docker-compose up -d
    ```
 7. 登录管理界面，添加三方登录
 
    ![1725534423502](image/README/1725534423502.png)
 
-# 效果展示
+
+1
+
+## 效果展示
 
 ![1725534529979](image/README/1725534529979.png)
 

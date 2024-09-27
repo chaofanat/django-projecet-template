@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-1tccg@!ew+x-!6vc0p1=u5!%plz^%#yj^i)z1b9r6p4qnzx0er
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -204,4 +204,31 @@ EMAIL_USE_SSL = True   # 使用ssl
 # EMAIL_USE_TLS = False # 使用tls
 # EMAIL_USE_SSL 和 EMAIL_USE_TLS 是互斥的，即只能有一个为 True
 
+#从环境变量中读取服务网络
+REDIS_SERVER_URL = os.environ.get('REDIS_SERVER_URL',"127.0.0.1")
 
+
+# redis 配置
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": f"redis://{REDIS_SERVER_URL}:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+# celery
+CELERY_BROKER_URL = f"redis://{REDIS_SERVER_URL}:6379/0"
+CELERY_RESULT_BACKEND = f"redis://{REDIS_SERVER_URL}:6379/0"
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TIMEZONE = "Asia/Shanghai"
+CELERY_ENABLE_UTC = True
+#控制celery进程的并行数
+#CELERY_WORKER_CONCURRENCY = 1
+# 控制任务结果的存储时间
+CELERY_RESULT_EXPIRES = 60 * 60 * 24 * 1  # 单位：秒，例如 3600 秒（1小时）

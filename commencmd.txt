@@ -15,6 +15,15 @@ python manage.py createsuperuser
 @REM 生成requirements.txt
 pip freeze > requirements.txt
 
+
+@REM 启动项目服务
+start_for_windows
+start_for_linux
+
+@REM 关闭项目服务
+stop_for_windows
+stop_for_linux
+
 @REM 前提系统有安装 GUN gettext,并配置了系统环境变量
 @REM 生成中文翻译文件
 python manage.py makemessages -l zh_HANS
@@ -25,6 +34,45 @@ python manage.py makemessages -l en
 @REM 编译翻译文件
 python manage.py compilemessages 
 
- git remote -v
 
- git remote set-url origin https://gitee.com/chaofanat/django-projecet-template.git
+
+
+
+@REM 查看当前git仓库地址
+git remote -v
+
+@REM 修改git仓库地址
+git remote set-url origin https://gitee.com/chaofanat/django-projecet-template.git
+
+
+
+
+ 
+@REM 启动celery,使用线程池
+celery -A MainConfig worker -l info -P threads
+
+@REM 查看celery注册的任务
+celery -A MainConfig inspect registered
+
+@REM 查看celery正在执行的任务
+celery -A MainConfig inspect active
+
+@REM 查看celery已经发送但是还未执行的任务
+celery -A MainConfig inspect reserved
+
+
+
+@REM redis
+Redis/redis-server
+Redis/redis-cli
+Redis/redis-cli flushall
+Redis/redis-cli shutdown
+
+
+@REM docker
+docker-compose build
+docker images
+docker tag [imageId] [imageName]
+docker push [imageName]
+docker-compose up -d
+docker-compose -f [docker-compose-finish.yml] up -d

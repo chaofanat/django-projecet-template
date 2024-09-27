@@ -72,25 +72,36 @@
         <h4 class="mb-5"><strong>这个网站有什么？</strong></h4>
 
         <div class="row">
-          <div class="col-lg-4 col-md-12 mb-4">
+          {% if app_list %}
+          {% for app in app_list %}
+          <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
               <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
-                <img src="/media/appIndex/index_02.jpg" class="img-fluid" />
+                <img src="/media/{{ app.icon }}" class="img-fluid" />
                 <a href="#!">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
               </div>
               <div class="card-body">
-                <h5 class="card-title">myblog</h5>
+                <h5 class="card-title">{{ app.name }}</h5>
                 <p class="card-text">
-                  我的博客写作与发布平台。没错，不只是我的博客，每个人都可以在这个平台上写作以及发布，提供良好的标签分类功能。
-                  如果真的有人用，那将是一大堆改进待执行。
+                  {{ app.description | safe }}
                 </p>
-                <a href="/myblog/" class="btn btn-primary" data-mdb-ripple-init>Go</a>
+                <a href="{{ app.url }}" class="btn btn-primary" data-mdb-ripple-init>Go</a>
               </div>
             </div>
           </div>
-
+          {% endfor %}
+          {% else %}
+          <div class="col-md-12">
+            <div class="alert alert-warning" role="alert">
+              <h4 class="alert-heading">暂无应用</h4>
+              <p>
+                请等待管理员添加应用。
+              </p>
+            </div>
+          </div>
+          {% endif %}
         </div>
       </section>
       <!--Section: Content-->
