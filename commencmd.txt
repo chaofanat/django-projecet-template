@@ -43,6 +43,7 @@ git remote -v
 
 @REM 修改git仓库地址
 git remote set-url origin https://gitee.com/chaofanat/django-projecet-template.git
+git remote set-url origin https://github.com/chaofanat/django-projecet-template.git
 
 
 
