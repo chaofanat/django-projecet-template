@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # django-silk
     "silk",
+    # django-request
+    "request",
 
     # ninja api
     'ninja',
@@ -71,6 +73,10 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     # allauth
     "allauth.account.middleware.AccountMiddleware",
+    
+    # django-request
+    "request.middleware.RequestMiddleware",
+
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 
 ]
