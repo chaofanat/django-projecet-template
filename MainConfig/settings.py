@@ -175,7 +175,33 @@ CORS_ALLOWED_ORIGINS = [
     # 允许的前端应用程序的地址
 ]
 
-CORS_ALLOW_HEADERS = "*"
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+    "x-auth-token",
+    "x-request-id",
+    "x-forwarded-for",
+    "x-forwarded-host",
+    "x-forwarded-proto",
+    "x-forwarded-port",
+]
+
 
 
 # Internationalization
