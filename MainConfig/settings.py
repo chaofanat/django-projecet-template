@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     "silk",
     # django-request
     "request",
+    # django-cors
+    "corsheaders",
 
     # ninja api
     'ninja',
@@ -65,6 +67,9 @@ MIDDLEWARE = [
     'silk.middleware.SilkyMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    
+    # django-cors
+    "corsheaders.middleware.CorsMiddleware",
     # locale
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -163,14 +168,14 @@ AUTHENTICATION_BACKENDS = [
 
 ]
 
-# Provider specific settings
-SOCIALACCOUNT_PROVIDERS = {
-    'github': {
-        'SCOPE': ['user', 'repo']
-        
-    },
-}
+# django-cors 跨越请求配置
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:*",
+    "http://127.0.0.1:*",
+    # 允许的前端应用程序的地址
+]
 
+CORS_ALLOW_HEADERS = "*"
 
 
 # Internationalization
@@ -214,6 +219,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # django-allauth其他配置
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': ['user', 'repo']
+        
+    },
+}
 # 用户登录
 ACCOUNT_AUTHENTICATION_METHOD = "username_email" # 邮箱或用户名登录
 # ACCOUNT_LOGIN_BY_CODE_ENABLED (default: False)
