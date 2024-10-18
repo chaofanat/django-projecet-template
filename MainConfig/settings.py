@@ -170,9 +170,10 @@ AUTHENTICATION_BACKENDS = [
 
 # django-cors 跨越请求配置
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:*",
-    "http://127.0.0.1:*",
+    "http://localhost:8080",
+    "http://127.0.0.1:8080",
     # 允许的前端应用程序的地址
+    # 不允许使用通配符
 ]
 
 CORS_ALLOW_METHODS = [
@@ -185,6 +186,7 @@ CORS_ALLOW_METHODS = [
 ]
 
 CORS_ALLOW_HEADERS = [
+    # 允许的自定义请求头，不允许使用统配符
     "accept",
     "accept-encoding",
     "authorization",
