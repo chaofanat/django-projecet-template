@@ -19,7 +19,7 @@
             <nav class="navbar navbar-dark navbar-expand-lg" style="z-index: 2000;">
                 <div class="container-fluid col-md-12">
                     <!-- Navbar brand -->
-                    <a class="navbar-brand nav-link" target="_blank" href="#">
+                    <a class="navbar-brand nav-link" target="_blank" href="https://www.chaofan.online">
                         <strong>ChaoFanOnline</strong>
                     </a>
                     <button class="navbar-toggler" type="button" data-mdb-collapse-init
@@ -30,10 +30,15 @@
                     <div class="collapse navbar-collapse" id="navbarExample01">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" aria-current="page" href="#">网站导航</a>
+                                <a class="nav-link" aria-current="page" href="/">网站导航</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/admin" rel="nofollow" target="_blank">管理站点</a>
+                                <a class="nav-link" href="/admin/" rel="nofollow" target="_blank">管理站点</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://blog.csdn.net/qq_43276836" target="_blank">
+                                    博客站点
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/api/v1/docs" target="_blank">
@@ -42,29 +47,27 @@
                             </li>
                         </ul>
 
-                        <ul class="navbar-nav d-flex flex-row align-items-center">
-                            <!-- Icons -->
-                            <li class="nav-item me-3 me-lg-0 mx-4">
-                                <a class="nav-link" href="https://github.com/chaofanat" rel="nofollow" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
+                        <ul class="navbar-nav d-flex flex-row align-items-center" >
+                            <!-- //登录 -->
+                            {% if user.is_authenticated %}
+                            <li class="nav-item dropdown">
+                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false" style="color: rgb(255, 255, 255);">
+                                    {{ user.username }}
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/accounts/profile">个人中心</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="/accounts/logout">登出</a>
+                                    </li>
+                                </ul>
                             </li>
 
-                            <li class="nav-item me-3 me-lg-0 mx-4"></li>
-                            <a class="nav-link" href="https://blog.csdn.net/qq_43276836" rel="nofollow" target="_blank">
-                                <i class="fa-solid fa-blog"></i>
-                            </a>
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/accounts/login">登录</a>
                             </li>
-                            <li class="nav-item me-3 me-lg-0 mx-4">
-                                <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#qrCodeModal">
-                                    <i class="fa-brands fa-qq"></i>
-                                </button>
-                            </li>
-                            <li class="nav-item me-3 me-lg-0 mx-4">
-                                <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#weixinModal">
-                                    <i class="fa-brands fa-weixin"></i>
-                                </button>
-                            </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
@@ -99,7 +102,7 @@
     </div>
 </div>
 <!-- weixin -->
- <div class="modal fade" id="weixinModal" tabindex="-1" aria-labelledby="weixinModalLabel" aria-hidden="true">
+<div class="modal fade" id="weixinModal" tabindex="-1" aria-labelledby="weixinModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -113,4 +116,4 @@
             </div>
         </div>
     </div>
- </div>
+</div>

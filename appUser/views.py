@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404
 @login_required
 def profile(request):
     profile = get_object_or_404(Profile, user=request.user)
-    return render(request, 'account/profile.html',{'profile':profile})
+    return render(request, 'appUser/profile.html',{'profile':profile})
 
 
 #JsonResponse

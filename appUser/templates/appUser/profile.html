@@ -14,7 +14,14 @@
     <title>用户信息</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     </meta>
-    <link rel="stylesheet" href="{% static 'library/bootstrap5/css/bootstrap.min.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'library/bootstrap5/css/bootstrap.min.css' %}" /> -->
+    <link rel="shortcut icon" href="{% static 'picture/icon.png' %}" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/library/fontawesome/css/all.min.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <link rel="stylesheet" href="{% static 'library/MDB/css/mdb.min.css' %}" />
+
     </link>
     <style>
         .gradient-custom-2 {
@@ -67,8 +74,9 @@
                 aria-label="Toggle navigation"></button>
         </div>
     </nav> -->
+    {% include 'appIndex/header.html' %}
 
-    <section class="h-100 gradient-custom-2">
+    <section class="radient-custom-2">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center">
                 <div class="col col-lg-9 col-xl-8">
@@ -116,7 +124,8 @@
                                     {% if user.has_usable_password %}
                                     <input type="password" class="form-control" id="id_password" name="password"
                                         value="********" readonly>
-                                    <a href="{% url 'account_change_password' %}" class="btn btn-primary mt-3">{% trans "Change password" %}</a>
+                                    <a href="{% url 'account_change_password' %}" class="btn btn-primary mt-3">
+                                        {% trans "Change password" %}</a>
                                     {% else %}
                                     <input type="password" class="form-control" id="id_password" name="password"
                                         value="********" readonly>
