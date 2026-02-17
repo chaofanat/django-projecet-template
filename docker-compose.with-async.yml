@@ -1,0 +1,26 @@
+# Docker Compose 异步服务扩展配置
+# 使用方法: docker compose -f docker-compose.yml -f docker-compose.with-async.yml up
+
+services:
+  # 添加 Redis 依赖到 mainservice
+  mainservice:
+    environment:
+      - ENABLE_ASYNC_SERVICES=true
+    depends_on:
+      redisserver:
+        condition: service_healthy
+
+  # Redis 服务（用于 Celery broker 和缓存）
+  redisserver:
+    build:
+      context: ./redis
+      dockerfile: Dockerfile
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    networks:
+      - shared-net

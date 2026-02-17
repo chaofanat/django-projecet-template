@@ -18,14 +18,15 @@ WORKDIR /app
 # 复制项目文件
 # COPY . /app
 
-#设置系统环境变量SERVER_URL
+# 设置 Redis 服务器地址环境变量（可通过 docker-compose 覆盖）
 ENV REDIS_SERVER_URL=redisserver
+ENV ENABLE_ASYNC_SERVICES=false
 
 # 暴露端口
 EXPOSE 8080
 
-# 启动命令
-CMD ["sh", "-c", "celery -A MainConfig worker -l info -P threads & python manage.py runserver 0.0.0.0:8080"]
+# 启动脚本 - 根据环境变量决定是否启动 Celery
+CMD ["sh", "-c", "if [ \"$ENABLE_ASYNC_SERVICES\" = \"true\" ]; then celery -A MainConfig worker -l info -P threads & fi; python manage.py runserver 0.0.0.0:8080"]
 
 #生产环境
 #CMD ["sh", "-c", "celery -A MainConfig worker -l info -P threads & python run.py"]

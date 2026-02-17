@@ -1,3 +1,7 @@
+# Docker Compose 配置
+# 默认配置：仅启动 Django + Nginx（不启动 Redis/Celery）
+# 如需启用异步服务，使用: docker compose -f docker-compose.yml -f docker-compose.with-async.yml up
+
 services:
   mainservice:
     build:
@@ -5,35 +9,16 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
-    depends_on:
-      redisserver:
-        condition: service_healthy
+    environment:
+      - ENABLE_ASYNC_SERVICES=${ENABLE_ASYNC_SERVICES:-false}
+      - REDIS_SERVER_URL=${REDIS_SERVER_URL:-redisserver}
     volumes:
       - .:/app
-    # healthcheck:
-    #   test: ["CMD", "curl", "-f", "http://localhost:8080/"]
-    #   interval: 5s
-    #   timeout: 3s
-    #   retries: 3
-    networks:
-      - shared-net
-
-  redisserver:
-    build: 
-      context: ./redis
-      dockerfile: Dockerfile
-    ports:
-      - "6379:6379"
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 5s
-      timeout: 3s
-      retries: 3
     networks:
       - shared-net
 
   nginxserver:
-    build: 
+    build:
       context: ./nginx
       dockerfile: Dockerfile
     ports:
