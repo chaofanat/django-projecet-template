@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"D:\\\\workspace\\\\django-projecet-template\" diff --stat HEAD~5 HEAD)",
+      "Bash(powershell -Command \"proxy; git push\")",
+      "Bash(python:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
