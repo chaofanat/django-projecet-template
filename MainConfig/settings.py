@@ -96,12 +96,10 @@ TEMPLATES = [
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
+                # `allauth` needs this from django
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-
-                # `allauth` needs this from django
-                'django.template.context_processors.request',
             ],
             
         },
@@ -169,11 +167,12 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # ssl
-
+# 注意：以下两个 Cookie 安全开关仅在 https 部署（TLS 已终止）时才应设为 True，
+# 纯 http 环境下设为 True 会导致 CSRF 校验失败（Cookie 不会被浏览器回传）
 SECURE_SSL_REDIRECT = False
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
 SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_SECONDS = 31536000  
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
@@ -236,8 +235,6 @@ TIME_ZONE = "Asia/Shanghai"
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
 
 
@@ -268,11 +265,11 @@ SOCIALACCOUNT_PROVIDERS = {
     },
 }
 # 用户登录
-ACCOUNT_AUTHENTICATION_METHOD = "username_email" # 邮箱或用户名登录
+# 登录方式（allauth 65.4 起 ACCOUNT_AUTHENTICATION_METHOD 被 ACCOUNT_LOGIN_METHODS 取代）
+ACCOUNT_LOGIN_METHODS = {"username", "email"} # 邮箱或用户名登录
 # ACCOUNT_LOGIN_BY_CODE_ENABLED (default: False)
 # “Login by email” offers an alternative method of logging in. Instead of entering an email address and accompanying password, the user only enters the email address. Then, a one-time code is sent to that email address which allows the user to login. This method is often referred to as “Magic Code Login”. This setting controls whether or not this method of logging in is enabled.
 ACCOUNT_EMAIL_VERIFICATION =  "optional" # 注册邮箱验证, 可选值 "强制(mandatory)"、 "可选(optional)" 或 "否(none)" 之一
-ACCOUNT_EMAIL_REQUIRED = True # 设置用户注册的时候必须填写邮箱地址
 ACCOUNT_LOGOUT_ON_GET = False           # 用户登出(需要确认)
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3 # 邮箱确认邮件的截止日期(天数)
 ACCOUNT_USERNAME_MIN_LENGTH = 4 # 用户名最小长度
@@ -281,8 +278,9 @@ ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True # 登录是否自动跳转
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True # 修改密码后是否自动登出
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = False # 重置密码后是否自动登录
 ACCOUNT_SESSION_REMEMBER = None # 控制会话的生命周期。设置为无以询问用户（“还记得我吗？”），False 表示不记得，True 表示始终记住。
-ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False # 注册时是否需要确认两次邮箱
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True # 注册时是否需要确认两次密码
+# 注册表单字段（allauth 65.5 起 ACCOUNT_EMAIL_REQUIRED / ACCOUNT_SIGNUP_*_ENTER_TWICE
+# 被 ACCOUNT_SIGNUP_FIELDS 取代；带 * 表示必填，password2 对应"确认两次密码"）
+ACCOUNT_SIGNUP_FIELDS = ["email*", "username*", "password1*", "password2*"]
 ACCOUNT_UNIQUE_EMAIL = True # 邮箱是否唯一
 SOCIALACCOUNT_AUTO_SIGNUP = True # 社交账号是否自动注册,使用从社交账号提供者检索的字段(如用户名、邮件)来绕过注册表单
 ACCOUNT_CHANGE_EMAIL = False # 禁用（False）时，用户可以将一个或多个电子邮件地址（最多 ACCOUNT_MAX_EMAIL_ADDRESSES）添加到他们的帐户并自由管理这些电子邮件地址。启用（True）时，用户只能拥有一个电子邮件地址，他们可以通过添加临时的第二个电子邮件地址来更改该地址，该地址在验证后替换当前电子邮件地址。
@@ -326,17 +324,23 @@ ACCOUNT_RATE_LIMITS = {
 }
 
 # email
-#邮件配置,需要去三方邮箱开启授权服务
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.qq.com'  # 如果是 163 改成 smtp.163.com
-EMAIL_PORT = 465
-EMAIL_HOST_USER = 'chaofanat@qq.com'  # 发送邮件的邮箱帐号
-EMAIL_HOST_PASSWORD = 'jlzarovrvdrtjbah'  # 授权码,各邮箱的设置中启用smtp服务时获取
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  #收件人显示发件人的邮箱
-# DEFAULT_FROM_EMAIL = '<xxxxx@qq.com>' #也可以随意写
-EMAIL_USE_SSL = True   # 使用ssl
-# EMAIL_USE_TLS = False # 使用tls
-# EMAIL_USE_SSL 和 EMAIL_USE_TLS 是互斥的，即只能有一个为 True
+# 邮件配置,需要去三方邮箱开启授权服务
+# Django 6.1 起使用 MAILERS 配置（EMAIL_HOST 等 EMAIL_* 设置已废弃，将于 7.0 移除）
+MAILERS = {
+    "default": {
+        "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
+        "OPTIONS": {
+            "host": "smtp.qq.com",  # 如果是 163 改成 smtp.163.com
+            "port": 465,
+            "username": "chaofanat@qq.com",  # 发送邮件的邮箱帐号
+            "password": "jlzarovrvdrtjbah",  # 授权码,各邮箱的设置中启用smtp服务时获取
+            # use_ssl 和 use_tls 是互斥的，即只能有一个为 True
+            "use_ssl": True,  # 使用ssl
+        },
+    },
+}
+# 发件人邮箱，默认取发件邮箱帐号；也可以随意写，如 '<xxxxx@qq.com>'
+DEFAULT_FROM_EMAIL = "chaofanat@qq.com"
 
 
 

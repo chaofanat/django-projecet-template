@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-一个django项目启动模板。
+一个django项目启动模板，基于 Django 6.1（要求 Python 3.12 及以上）。
 
 集成了django-allauth、django-allauth-bootstrap5、simpleui、django-ninja、django-ninja-jwt等django适配的应用，用于提供一个基础设施更加完善的django项目启动模板。
 
@@ -36,7 +36,7 @@
     git clone https://gitee.com/chaofanat/django-projecet-template.git
 ```
 
-2. 安装依赖
+2. 安装依赖（需要 Python 3.12+，推荐 3.13）
 
    ```cmake
    pip install -r requirements.txt
@@ -54,19 +54,26 @@
    ```
 5. 配置邮箱相关配置MainConfig/settings.py
 
+   Django 6.1 起邮件通过 `MAILERS` 字典配置（`EMAIL_HOST` 等 `EMAIL_*` 设置已废弃，将于 7.0 移除）：
+
    ```python
    # email
-   #邮件配置,需要去三方邮箱开启授权服务
-   # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-   EMAIL_HOST = 'smtp.qq.com'  # 如果是 163 改成 smtp.163.com
-   EMAIL_PORT = 465
-   EMAIL_HOST_USER = 'chaofanat@qq.com'  # 发送邮件的邮箱帐号
-   EMAIL_HOST_PASSWORD = 'abcderfetg'  # 授权码,各邮箱的设置中启用smtp服务时获取
-   DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  #收件人显示发件人的邮箱
-   # DEFAULT_FROM_EMAIL = '<xxxxx@qq.com>' #也可以随意写
-   EMAIL_USE_SSL = True   # 使用ssl
-   # EMAIL_USE_TLS = False # 使用tls
-   # EMAIL_USE_SSL 和 EMAIL_USE_TLS 是互斥的，即只能有一个为 True
+   # 邮件配置,需要去三方邮箱开启授权服务
+   MAILERS = {
+       "default": {
+           "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
+           "OPTIONS": {
+               "host": "smtp.qq.com",  # 如果是 163 改成 smtp.163.com
+               "port": 465,
+               "username": "xxxxx@qq.com",  # 发送邮件的邮箱帐号
+               "password": "abcderfetg",  # 授权码,各邮箱的设置中启用smtp服务时获取
+               # use_ssl 和 use_tls 是互斥的，即只能有一个为 True
+               "use_ssl": True,  # 使用ssl
+           },
+       },
+   }
+   # 发件人邮箱，默认取发件邮箱帐号；也可以随意写，如 '<xxxxx@qq.com>'
+   DEFAULT_FROM_EMAIL = "xxxxx@qq.com"
    ```
 6. 启动服务
 

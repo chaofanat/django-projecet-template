@@ -1,4 +1,4 @@
-FROM crpi-fhdn7tv1nno7r3nv.cn-shanghai.personal.cr.aliyuncs.com/chaofanat/python:latest AS builder
+FROM python:3.13-slim AS builder
 USER root
 
 WORKDIR /app
